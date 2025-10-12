@@ -1,10 +1,16 @@
+
 .App {
   text-align: center;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e0eafc 100%);
+  min-height: 100vh;
+  color: #2a2a2a;
 }
 
+
 .App-logo {
-  height: 40vmin;
+  height: 60px;
   pointer-events: none;
+  margin-right: 16px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,20 +19,96 @@
   }
 }
 
+
 .App-header {
-  background-color: #282c34;
+  background-color: #3a3f58;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+
+.App-link, .navbar-nav .nav-link, a {
+  color: #007bff !important;
+  font-weight: 500;
+  transition: color 0.2s;
 }
+.App-link:hover, .navbar-nav .nav-link:hover, a:hover {
+  color: #0056b3 !important;
+  text-decoration: underline;
+}
+
+/* Bootstrap Navbar Customization */
+.navbar {
+  background: linear-gradient(90deg, #3a3f58 0%, #6a82fb 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.navbar-brand {
+  color: #fff !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.navbar-nav .nav-link {
+  color: #e0eafc !important;
+  margin-right: 10px;
+}
+.navbar-nav .nav-link.active {
+  color: #ffd700 !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #3a3f58;
+  font-weight: 700;
+}
+
+/* Tables */
+.table {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+.table th {
+  background: #6a82fb;
+  color: #fff;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #e0eafc;
+}
+
+/* Buttons */
+.btn, .btn-primary {
+  background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.btn:hover, .btn-primary:hover {
+  background: linear-gradient(90deg, #fc5c7d 0%, #6a82fb 100%);
+  color: #fff;
+}
+
+/* Cards */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Modals */
+.modal-content {
+  border-radius: 12px;
+}
+
+/* Custom Favicon (handled in public/index.html) */
 
 @keyframes App-logo-spin {
   from {
