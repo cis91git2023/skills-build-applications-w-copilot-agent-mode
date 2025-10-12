@@ -5,13 +5,25 @@ from octofit_tracker.models import Team, Activity, Leaderboard, Workout
 class Command(BaseCommand):
     help = 'Populate the octofit_db database with test data'
 
+
     def handle(self, *args, **options):
-        # Delete existing data
-        get_user_model().objects.all().delete()
-        Team.objects.all().delete()
-        Activity.objects.all().delete()
-        Leaderboard.objects.all().delete()
-        Workout.objects.all().delete()
+        # Delete existing data (skip objects with id=None)
+        User = get_user_model()
+        for obj in User.objects.all():
+            if getattr(obj, 'id', None) is not None:
+                obj.delete()
+        for obj in Team.objects.all():
+            if getattr(obj, 'id', None) is not None:
+                obj.delete()
+        for obj in Activity.objects.all():
+            if getattr(obj, 'id', None) is not None:
+                obj.delete()
+        for obj in Leaderboard.objects.all():
+            if getattr(obj, 'id', None) is not None:
+                obj.delete()
+        for obj in Workout.objects.all():
+            if getattr(obj, 'id', None) is not None:
+                obj.delete()
 
         # Create teams
         marvel = Team.objects.create(name='Marvel')
