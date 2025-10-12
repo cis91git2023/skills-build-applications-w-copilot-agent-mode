@@ -18,6 +18,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from . import views
 from django.http import HttpResponse
+from django.views.generic import RedirectView
 
 
 def dev_test(request):
@@ -35,8 +36,13 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('', views.api_root, name='api-root'),
     path('-8000.app.github.dev/', dev_test),
+    path('-8000.app.github.dev/', RedirectView.as_view(url='/')),  # Add this line
 ]
 
+from django.urls import re_path
 
+urlpatterns += [
+    re_path(r'^-8000\.app\.github\.dev/?$', views.api_root, name='github-dev-root'),
+]
 
 
