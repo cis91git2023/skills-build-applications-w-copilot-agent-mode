@@ -44,5 +44,15 @@ from django.urls import re_path
 urlpatterns += [
     re_path(r'^-8000\.app\.github\.dev/?$', views.api_root, name='github-dev-root'),
 ]
+from django.http import HttpResponse
 
+def github_dev_handler(request):
+    return HttpResponse("GitHub Dev domain route active.")
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+    path('', views.api_root, name='api-root'),
+    path('-8000.app.github.dev/', github_dev_handler, name='github-dev-handler'),
+]
 
