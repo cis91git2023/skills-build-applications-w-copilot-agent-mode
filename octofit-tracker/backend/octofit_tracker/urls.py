@@ -17,12 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from . import views
-from django.http import HttpResponse
-from django.views.generic import RedirectView
 
 
-def dev_test(request):
-    return HttpResponse("Dev domain pattern matched.")
 
 router = DefaultRouter()
 router.register(r'users', views.UserViewSet, basename='user')
@@ -35,8 +31,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('', views.api_root, name='api-root'),
-    path('-8000.app.github.dev/', dev_test),
-    path('-8000.app.github.dev/', RedirectView.as_view(url='/')),  # Add this line
 ]
 
 from django.urls import re_path
