@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 const Leaderboard = () => {
   const [entries, setEntries] = useState([]);
-  const apiUrl = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`;
+  const codespace = process.env.REACT_APP_CODESPACE_NAME;
+  const apiUrl = codespace && codespace !== 'localhost' 
+    ? `https://${codespace}-8000.app.github.dev/api/leaderboard/`
+    : 'http://localhost:8000/api/leaderboard/';
 
   useEffect(() => {
     console.log('Fetching leaderboard from:', apiUrl);
