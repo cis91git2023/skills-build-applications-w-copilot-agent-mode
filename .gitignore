@@ -31,3 +31,13 @@ yarn-error.log*
 # Python files
 *.pyc
 __pycache__/
+
+# Log files
+*.log
+
+# Database files
+db.sqlite3
+*.db
+
+# MongoDB data
+/data/db

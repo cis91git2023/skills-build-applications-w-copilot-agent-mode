@@ -164,9 +164,29 @@ tail -f /tmp/frontend.log
 tail -f /tmp/mongod.log
 ```
 
+## Check Service Status
+
+Use the health check script to verify all services are running:
+
+```bash
+./check-services.sh
+```
+
+This will check:
+- MongoDB status and connectivity
+- Backend status and API accessibility
+- Frontend status and accessibility
+- Dependencies installation status
+
 ## Stop Services
 
-Find and kill the processes:
+Use the stop script to gracefully stop all services:
+
+```bash
+./stop-services.sh
+```
+
+Or manually stop individual services:
 ```bash
 # Stop backend
 pkill -f "python manage.py runserver"
