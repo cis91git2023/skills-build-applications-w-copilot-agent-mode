@@ -18,12 +18,27 @@ const Workouts = () => {
 
   return (
     <div>
-      <h2>Workouts</h2>
-      <ul>
-        {workouts.map((workout, idx) => (
-          <li key={workout.id || idx}>{workout.name} - {workout.description}</li>
-        ))}
-      </ul>
+      <h2 className="mb-4">Workouts</h2>
+      <table className="table table-striped table-bordered">
+        <thead className="table-light">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {workouts.map((workout, idx) => (
+            <tr key={workout.id || idx}>
+              <td>{idx + 1}</td>
+              <td>{workout.name}</td>
+              <td>{workout.description}</td>
+              <td>{workout.timestamp ? new Date(workout.timestamp).toLocaleString() : ''}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

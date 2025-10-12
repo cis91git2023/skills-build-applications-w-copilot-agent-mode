@@ -18,12 +18,29 @@ const Activities = () => {
 
   return (
     <div>
-      <h2>Activities</h2>
-      <ul>
-        {activities.map((activity, idx) => (
-          <li key={activity.id || idx}>{activity.type} - {activity.duration} min - {activity.distance} km</li>
-        ))}
-      </ul>
+      <h2 className="mb-4">Activities</h2>
+      <table className="table table-striped table-bordered">
+        <thead className="table-light">
+          <tr>
+            <th>#</th>
+            <th>Type</th>
+            <th>Duration (min)</th>
+            <th>Distance (km)</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {activities.map((activity, idx) => (
+            <tr key={activity.id || idx}>
+              <td>{idx + 1}</td>
+              <td>{activity.type}</td>
+              <td>{activity.duration}</td>
+              <td>{activity.distance}</td>
+              <td>{activity.timestamp ? new Date(activity.timestamp).toLocaleString() : ''}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
