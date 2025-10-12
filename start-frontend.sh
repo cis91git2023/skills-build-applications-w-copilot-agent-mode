@@ -15,15 +15,15 @@ if [ ! -d "node_modules" ]; then
     npm install
 fi
 
-# Check if .env file exists
-if [ ! -f ".env" ]; then
-    echo "Creating .env file..."
-    if [ -n "$CODESPACE_NAME" ]; then
-        echo "REACT_APP_CODESPACE_NAME=$CODESPACE_NAME" > .env
-    else
-        echo "Warning: CODESPACE_NAME environment variable not set"
-        echo "REACT_APP_CODESPACE_NAME=localhost" > .env
-    fi
+# Check if .env file exists and update CODESPACE_NAME if needed
+if [ -n "$CODESPACE_NAME" ]; then
+    echo "REACT_APP_CODESPACE_NAME=$CODESPACE_NAME" > .env
+    echo "Updated .env with CODESPACE_NAME: $CODESPACE_NAME"
+elif [ ! -f ".env" ]; then
+    echo "Creating .env file for localhost..."
+    echo "REACT_APP_CODESPACE_NAME=localhost" > .env
+else
+    echo "Using existing .env file"
 fi
 
 # Start React development server
