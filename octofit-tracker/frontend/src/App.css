@@ -6,10 +6,19 @@
 }
 
 
+
 .App-logo {
-  height: 60px;
-  pointer-events: none;
-  margin-right: 16px;
+  display: none;
+}
+
+.octofit-navbar-logo {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  background: #fff;
+  margin-right: 12px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

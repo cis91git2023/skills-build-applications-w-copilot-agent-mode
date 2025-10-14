@@ -11,11 +11,11 @@ import logo from './octofitapp-small.png';
 function App() {
   return (
     <Router>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div className="container-fluid">
-          <Link className="navbar-brand d-flex align-items-center" to="/">
-            <img src={logo} alt="OctoFit Logo" className="App-logo me-2" />
-            OctoFit Tracker
+          <Link className="navbar-brand d-flex align-items-center" to="/" style={{paddingLeft: 0}}>
+            <img src={logo} alt="OctoFit Logo" className="octofit-navbar-logo me-2" />
+            <span className="fw-bold fs-4 text-primary">OctoFit Tracker</span>
           </Link>
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
