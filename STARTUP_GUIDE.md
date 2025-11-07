@@ -38,6 +38,7 @@ chmod +x start-backend.sh
 ```bash
 chmod +x start-frontend.sh
 ./start-frontend.sh
+
 ```
 
 ### Manual Setup
